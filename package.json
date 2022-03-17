@@ -1,0 +1,24 @@
+{
+  "name": "my-react",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpark011/my-react.git"
+  },
+  "author": "Jay Park",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpark011/my-react/issues"
+  },
+  "homepage": "https://github.com/jpark011/my-react#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
