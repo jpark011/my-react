@@ -1,7 +1,7 @@
-import { createElement } from './';
+import { createElement } from './createElement';
 
 describe('createElement', () => {
-  it('should create a new element with given type', () => {
+  test('should create a new element with given type', () => {
     const div = createElement('div');
     const span = createElement('span');
 
@@ -10,13 +10,13 @@ describe('createElement', () => {
     expect(span.props).toEqual({ children: [] });
   });
 
-  it('should create a new element with given props', () => {
+  test('should create a new element with given props', () => {
     const element = createElement('div', { count: 0 });
 
     expect(element.props.count).toEqual(0);
   });
 
-  it('should create a new element with primitive children', () => {
+  test('should create a new element with primitive children', () => {
     const single = createElement('div', null, 'hello');
     const [text] = single.props.children;
     const multi = createElement('div', null, 'hello', 'world');
@@ -27,7 +27,7 @@ describe('createElement', () => {
     expect(multi.props.children).toHaveLength(2);
   });
 
-  it('should create a new element with object children', () => {
+  test('should create a new element with object children', () => {
     const single = createElement('div', null, { id: 1 });
     const [child] = single.props.children;
     const multi = createElement('div', null, { id: 1 }, { id: 2 });
