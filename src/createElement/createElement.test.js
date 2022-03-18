@@ -27,11 +27,13 @@ describe('createElement', () => {
     expect(multi.props.children).toHaveLength(2);
   });
 
-  it('should create a new element with given children', () => {
-    const single = createElement('div', null, 'hello');
-    const multi = createElement('div', null, 'hello', 'world');
+  it('should create a new element with object children', () => {
+    const single = createElement('div', null, { id: 1 });
+    const [child] = single.props.children;
+    const multi = createElement('div', null, { id: 1 }, { id: 2 });
 
     expect(single.props.children).toHaveLength(1);
+    expect(child.id).toEqual(1);
     expect(multi.props.children).toHaveLength(2);
   });
 });
