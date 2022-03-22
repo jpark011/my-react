@@ -1,18 +1,15 @@
-export function render(element, container) {
+export function createDOM(fiber) {
   const dom =
-    element.type === 'TEXT_ELEMENT'
-      ? document.createTextNode(element.props.nodeValue)
-      : document.createElement(element.type);
-  container.appendChild(dom);
+    fiber.type === 'TEXT_ELEMENT'
+      ? document.createTextNode(fiber.props.nodeValue)
+      : document.createElement(fiber.type);
   const isProperty = (key) => key !== 'children' && key !== 'nodeValue';
 
-  Object.keys(element.props)
+  Object.keys(fiber.props)
     .filter(isProperty)
     .forEach((name) => {
-      dom[name] = element.props[name];
+      dom[name] = fiber.props[name];
     });
 
-  element.props.children.forEach((child) => {
-    render(child, dom);
-  });
+  return dom;
 }
